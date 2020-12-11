@@ -3,11 +3,11 @@ import { Redirect } from 'react-router-dom'
 import UserModel from '../models/user'
 
 const Login = props => {
-  let [email, setEmail] = useState('')
+  let [username, setUsername] = useState('')
   let [password, setPassword] = useState('')
 
-  let handleEmail = e => {
-    setEmail(e.target.value)
+  let handleUsername = e => {
+    setUsername(e.target.value)
   }
 
   let handlePassword = e => {
@@ -18,7 +18,7 @@ const Login = props => {
     event.preventDefault()
 
     UserModel.login({
-      email,
+      username,
       password
     }).then(data => {
         if (!data.user) {
@@ -39,13 +39,13 @@ const Login = props => {
       <h4>Login</h4>
       <form onSubmit={ handleSubmit }>
         <div className="form-group">
-          <label htmlFor="name">Email</label>
+          <label htmlFor="name">Username</label>
           <input 
-            onChange={ handleEmail } 
-            value={ email } 
-            type="email" 
-            id="email" 
-            name="email" 
+            onChange={ handleUsername } 
+            value={ username } 
+            type="username" 
+            id="username" 
+            name="username" 
             required  
           />
         </div>

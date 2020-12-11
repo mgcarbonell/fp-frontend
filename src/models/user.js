@@ -1,8 +1,8 @@
-const REACT_APP_API_URL = "http://localhost:4000/api/v1"
+const REACT_APP_API_URL = "http://localhost:5000"
 
 export default class UserModel {
   static create(data) {
-    return fetch(`${REACT_APP_API_URL}/auth/register`, {
+    return fetch(`${REACT_APP_API_URL}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -13,7 +13,7 @@ export default class UserModel {
 
   static login(credentials) {
     // remember to send authorization headers
-    return fetch(`${REACT_APP_API_URL}/auth/login`, {
+    return fetch(`${REACT_APP_API_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ export default class UserModel {
   }
 
   static logout() {
-    return fetch(`${REACT_APP_API_URL}/auth/logout`, {
+    return fetch(`${REACT_APP_API_URL}/logout`, {
       method: "DELETE",
       credentials: 'include'
     })
